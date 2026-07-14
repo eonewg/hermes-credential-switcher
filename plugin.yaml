@@ -1,0 +1,9 @@
+name: hermes-credential-switcher
+version: 0.1.0
+description: >
+  Operator-owned credential priority switcher for Hermes credential pools.
+  Complements native multi-credential pools (list/status/use) without
+  reimplementing OAuth or automatic rotation.
+author: Hermes
+kind: standalone
+provides_hooks: []

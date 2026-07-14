@@ -1,0 +1,63 @@
+[build-system]
+# PEP 639 license="MIT" needs setuptools>=77; Hermes ecosystem caps <83.
+requires = ["setuptools>=77,<83", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-credential-switcher"
+version = "0.1.0"
+description = "Hermes plugin: operator-owned credential pool priority switching (list/status/use)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [
+  { name = "hermes-credential-switcher contributors" },
+]
+keywords = ["hermes", "hermes-agent", "plugin", "credentials", "auth"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Security",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-timeout>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/eonewg/hermes-credential-switcher"
+Documentation = "https://github.com/eonewg/hermes-credential-switcher#readme"
+Issues = "https://github.com/eonewg/hermes-credential-switcher/issues"
+
+# Hermes discovers pip-installed plugins via this entry-point group.
+# See: website/docs/developer-guide/plugins (Distribute via pip).
+[project.entry-points."hermes_agent.plugins"]
+hermes-credential-switcher = "hermes_credential_switcher"
+
+[tool.setuptools.packages.find]
+include = ["hermes_credential_switcher*"]
+
+[tool.setuptools.package-data]
+hermes_credential_switcher = ["skill/SKILL.md", "py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+timeout = 60
+addopts = "-q"
+filterwarnings = [
+  "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

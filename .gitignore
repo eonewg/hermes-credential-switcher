@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+env/
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Secrets — never commit real Hermes auth material
+auth.json
+auth.lock
+*.pem
+*.key
+.env
+.env.*
+
+# Local operator state
+credential-switcher/
+
+# Packaging
+*.whl
+
+# CI-only checkouts (NousResearch/hermes-agent for loader integration)
+.ci/
